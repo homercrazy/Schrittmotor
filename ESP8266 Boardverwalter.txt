@@ -1,0 +1,6 @@
+Tragen Sie die Boardverwalter-URL unter "Datei/Voreinstellungen" in die Arduino-IDE ein.
+
+http://arduino.esp8266.com/stable/package_esp8266com_index.json
+
+
+https://www.heise.de/ct/artikel/Arduino-IDE-installieren-und-fit-machen-fuer-ESP8266-und-ESP32-4130814.html

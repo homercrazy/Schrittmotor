@@ -26,10 +26,8 @@ void loop() {
 
   
 
-
- 
- int delayMillisec=100; 
- int steps=50;
+ int delayMillisec=1; 
+ int steps=2550;
 
   for(int a1=1;a1<steps;a1++){
     
@@ -46,7 +44,7 @@ void loop() {
 
   }
 
-  delay(1000);
+  delay(5000);
 
   for(int a1=1;a1<steps;a1++){
     
