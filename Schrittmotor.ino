@@ -26,13 +26,16 @@ void setup() {
   pinMode(justBack,INPUT_PULLUP);
   pinMode(closeDoor,INPUT_PULLUP);
 
+  pinMode(LED_BUILTIN, OUTPUT); // LED als Output definieren
+  digitalWrite(LED_BUILTIN, LOW); // Ausschalten
+  
 
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
- int delayMillisec=1; // Winkelgeschwindigkeit 1 ms entspricht 17,6°/s bei einem Übersetzungsverhältnis von 51:1
+ int delayMillisec=2; // Winkelgeschwindigkeit 1 ms entspricht 17,6°/s bei einem Übersetzungsverhältnis von 51:1
  
  int steps=2550;  // Abgefahrener Winkelbereich 2550 Schritte entspricht 90° (200*51=10200 Schritte pro Umdrehung)
 
@@ -42,14 +45,21 @@ void loop() {
 // Justage der Hebelausrichtung 
 ////////////////////////////////////////////////////////////////////////
 
+//digitalWrite(LED_BUILTIN, HIGH); // LED Ausschalten
+//delay(1000);
+//digitalWrite(LED_BUILTIN, LOW);  // LED einschalten
+//delay(1000);
+
+
 while (digitalRead(justFor)==LOW){
 
     digitalWrite(Dir,LOW);
 
     digitalWrite(Step,HIGH);
-    delay(delayMillisec*10);
+    delay(delayMillisec);
     digitalWrite(Step,LOW);
-    delay(delayMillisec*10);
+    delay(delayMillisec);
+    //digitalWrite(LED_BUILTIN, HIGH); // LED Ausschalten
   
 }
 
@@ -58,10 +68,10 @@ while (digitalRead(justBack)==LOW){
     digitalWrite(Dir,HIGH);
 
     digitalWrite(Step,HIGH);
-    delay(delayMillisec*10);
+    delay(delayMillisec);
     digitalWrite(Step,LOW);
-    delay(delayMillisec*10);
-  
+    delay(delayMillisec);
+    //digitalWrite(LED_BUILTIN, LOW);  // LED einschalten
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -69,43 +79,6 @@ while (digitalRead(justBack)==LOW){
 
 
 
-
-if (digitalRead(closeDoor)==LOW){
-
-
-  digitalWrite(Dir,LOW);
-  for(int a1=1;a1<steps;a1++){
-   
-    //digitalWrite(MS1,HIGH);
-    //digitalWrite(MS2,HIGH);
-    //digitalWrite(MS3,HIGH);
-  
-    digitalWrite(Step,HIGH);
-    delay(delayMillisec);
-    digitalWrite(Step,LOW);
-    delay(delayMillisec);
-
-  }
-
-  delay(5000);
-
-  digitalWrite(Dir,HIGH);
-
-  for(int a1=1;a1<steps;a1++){
-    
-    //digitalWrite(MS1,HIGH);
-    //digitalWrite(MS2,HIGH);
-    //digitalWrite(MS3,HIGH);
-  
-    digitalWrite(Step,HIGH);
-    delay(delayMillisec);
-    digitalWrite(Step,LOW);
-    delay(delayMillisec);
-
-  }
-
-  
-}
   
 
 }
